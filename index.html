@@ -1,45 +1,42 @@
 <!DOCTYPE html>
-
 <html lang="zh-TW">
 
 <head>
 
-```
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-<meta name="viewport"
-    content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
-<title>分享電子名片</title>
+    <title>分享電子名片</title>
 
-<!-- LINE LIFF SDK -->
-<script
-    charset="utf-8"
-    src="https://static.line-scdn.net/liff/edge/2/sdk.js">
-</script>
-```
+    <!-- LINE LIFF SDK -->
+    <script charset="utf-8"
+        src="https://static.line-scdn.net/liff/edge/2/sdk.js">
+    </script>
 
 </head>
 
+
 <body>
 
-<div style="
-    text-align:center;
-    margin-top:50px;
-    font-family:sans-serif;
-">
+    <div style="
+        text-align:center;
+        margin-top:50px;
+        font-family:sans-serif;
+    ">
 
-```
-<h2>正在開啟 LINE 分享...</h2>
+        <h2>正在開啟 LINE 分享...</h2>
 
-<p id="status">
-    請稍候
-</p>
-```
+        <p id="status">
+            請稍候
+        </p>
 
-</div>
+    </div>
+
 
 <script>
+
 
 /*
  * =========================================================
@@ -52,11 +49,8 @@ const LIFF_ID = "2011256691-zF9c9pjc";
 
 /*
  * =========================================================
- * LINE FLEX MESSAGE
- *
- * 第二份 JSON 已整合到第一份 LIFF 程式
- *
- * 王俊騰／宸浚企業社
+ * LINE Flex Message
+ * 電子名片：王俊騰／宸浚企業社
  * =========================================================
  */
 
@@ -88,7 +82,9 @@ const flexMessage = {
 
             aspectRatio: "60:11",
 
-            aspectMode: "cover"
+            aspectMode: "cover",
+
+            gravity: "center"
 
         },
 
@@ -105,10 +101,7 @@ const flexMessage = {
 
             layout: "vertical",
 
-            spacing: "md",
-
             contents: [
-
 
                 /*
                  * =================================================
@@ -138,15 +131,17 @@ const flexMessage = {
 
                             gravity: "center",
 
+                            offsetTop: "xxl",
+      
                             color: "#000000"
 
                         }
 
                     ],
 
-                    height: "70px",
+                    borderWidth: "bold",
 
-                    justifyContent: "center"
+                    height: "100px"
 
                 },
 
@@ -163,16 +158,7 @@ const flexMessage = {
 
                     layout: "vertical",
 
-                    backgroundColor: "#CCEEFF",
-
-                    cornerRadius: "md",
-
-                    paddingAll: "12px",
-
-                    spacing: "sm",
-
                     contents: [
-
 
                         /*
                          * -------------------------------------------------
@@ -186,8 +172,6 @@ const flexMessage = {
 
                             layout: "horizontal",
 
-                            alignItems: "center",
-
                             contents: [
 
                                 {
@@ -199,9 +183,9 @@ const flexMessage = {
 
                                     size: "xs",
 
-                                    aspectMode: "fit",
+                                    align: "start",
 
-                                    flex: 0
+                                    gravity: "center"
 
                                 },
 
@@ -211,19 +195,21 @@ const flexMessage = {
 
                                     text: "宸浚企業社",
 
-                                    size: "md",
-
-                                    weight: "bold",
+                                    align: "start",
 
                                     gravity: "center",
 
-                                    margin: "sm",
+                                    size: "md",
 
-                                    flex: 1
+                                    offsetEnd: "55px",
+
+                                    weight: "bold"
 
                                 }
 
-                            ]
+                            ],
+
+                            height: "30px"
 
                         },
 
@@ -236,16 +222,30 @@ const flexMessage = {
 
                         {
 
-                            type: "separator",
+                            type: "box",
 
-                            color: "#FFFFFF",
+                            layout: "vertical",
 
-                            margin: "xs"
+                            contents: [
+
+                                {
+
+                                    type: "separator",
+
+                                    margin: "md",
+
+                                    color: "#FFFFFF"
+
+                                }
+
+                            ],
+
+                            height: "20px"
 
                         },
 
 
-                        /*
+   /*
                          * -------------------------------------------------
                          * 手機
                          * -------------------------------------------------
@@ -354,24 +354,15 @@ const flexMessage = {
 
                     layout: "horizontal",
 
-                    spacing: "sm",
-
-                    margin: "md",
-
                     contents: [
 
-
                         /*
-                         * 加 LINE
+                         * 加 LINE 聯繫
                          */
 
                         {
 
                             type: "button",
-
-                            style: "primary",
-
-                            color: "#0044BB",
 
                             action: {
 
@@ -380,11 +371,13 @@ const flexMessage = {
                                 label: "加 LINE 聯繫",
 
                                 uri:
-                                    "https://line.me/ti/p/KGjehjx9ge"
+                                    "https://line.me/ti/p/xvyN_puK5u"
 
                             },
 
-                            flex: 1
+                            style: "primary",
+
+                            color: "#0044BB"
 
                         },
 
@@ -397,10 +390,6 @@ const flexMessage = {
 
                             type: "button",
 
-                            style: "primary",
-
-                            color: "#003C9D",
-
                             action: {
 
                                 type: "uri",
@@ -412,15 +401,33 @@ const flexMessage = {
 
                             },
 
-                            flex: 1
+                            style: "primary",
+
+                            height: "md",
+
+                            margin: "md",
+
+                            color: "#003C9D"
 
                         }
 
-                    ]
+                    ],
+
+                    offsetTop: "md",
+
+                    spacing: "md",
+
+                    margin: "none",
+
+                    offsetBottom: "md",
+
+                    paddingBottom: "md"
 
                 }
 
-            ]
+            ],
+
+            spacing: "none"
 
         },
 
@@ -437,12 +444,7 @@ const flexMessage = {
 
             layout: "horizontal",
 
-            spacing: "md",
-
-            paddingTop: "sm",
-
             contents: [
-
 
                 /*
                  * =================================================
@@ -454,11 +456,7 @@ const flexMessage = {
 
                     type: "box",
 
-                    layout: "vertical",
-
-                    flex: 1,
-
-                    justifyContent: "center",
+                    layout: "horizontal",
 
                     contents: [
 
@@ -471,9 +469,11 @@ const flexMessage = {
 
                             size: "xs",
 
-                            aspectMode: "fit",
+                            align: "start",
 
-                            aspectRatio: "1:1",
+                            offsetBottom: "11px",
+
+                            gravity: "top",
 
                             action: {
 
@@ -488,7 +488,9 @@ const flexMessage = {
 
                         }
 
-                    ]
+                    ],
+
+                    height: "60px"
 
                 },
 
@@ -505,23 +507,6 @@ const flexMessage = {
 
                     layout: "horizontal",
 
-                    flex: 1,
-
-                    justifyContent: "center",
-
-                    alignItems: "center",
-
-                    action: {
-
-                        type: "uri",
-
-                        label: "分享",
-
-                        uri:
-                            "https://liff.line.me/2011256691-zF9c9pjc"
-
-                    },
-
                     contents: [
 
                         {
@@ -533,9 +518,7 @@ const flexMessage = {
 
                             size: "xxs",
 
-                            aspectMode: "fit",
-
-                            flex: 0
+                            align: "start"
 
                         },
 
@@ -545,24 +528,35 @@ const flexMessage = {
 
                             text: "分享",
 
-                            size: "sm",
-
                             weight: "bold",
 
-                            gravity: "center",
+                            align: "start",
 
-                            margin: "xs"
+                            gravity: "center"
 
                         }
 
-                    ]
+                    ],
+
+                    offsetEnd: "20px",
+
+                    action: {
+
+                        type: "uri",
+
+                        label: "分享",
+
+                        uri:
+                            "https://liff.line.me/2011256691-zF9c9pjc"
+
+                    }
 
                 },
 
 
                 /*
                  * =================================================
-                 * SUNCUE LOGO
+                 * SUNCUE Logo
                  * =================================================
                  */
 
@@ -571,12 +565,6 @@ const flexMessage = {
                     type: "box",
 
                     layout: "vertical",
-
-                    flex: 1,
-
-                    justifyContent: "center",
-
-                    alignItems: "flex-end",
 
                     contents: [
 
@@ -589,14 +577,17 @@ const flexMessage = {
 
                             size: "md",
 
-                            aspectMode: "fit",
+                            offsetBottom: "25px",
+
+                            offsetEnd: "10px",
+
+                            gravity: "top",
 
                             action: {
 
                                 type: "uri",
 
-                                label:
-                                    "SUNCUE 官方網站",
+                                label: "SUNCUE 官方網站",
 
                                 uri:
                                     "https://www.suncue.tw/"
@@ -605,18 +596,26 @@ const flexMessage = {
 
                         }
 
-                    ]
+                    ],
+
+                    width: "120px",
+
+                    offsetBottom: "5px"
 
                 }
 
-            ]
+            ],
+
+            spacing: "xs",
+
+            height: "60px"
 
         },
 
 
         /*
          * =====================================================
-         * FOOTER STYLE
+         * STYLES
          * =====================================================
          */
 
@@ -624,9 +623,9 @@ const flexMessage = {
 
             footer: {
 
-                separator: true,
+                separatorColor: "#DDDDDD",
 
-                separatorColor: "#DDDDDD"
+                separator: true
 
             }
 
@@ -649,7 +648,6 @@ liff.init({
 
 })
 
-
 .then(() => {
 
 
@@ -666,7 +664,7 @@ liff.init({
 
     /*
      * =====================================================
-     * 檢查 LINE 登入狀態
+     * 檢查登入
      * =====================================================
      */
 
@@ -683,7 +681,7 @@ liff.init({
      * =====================================================
      * 開啟 LINE 分享對象選擇器
      * =====================================================
- */
+     */
 
     return liff.shareTargetPicker([
 
@@ -699,7 +697,8 @@ liff.init({
 
     /*
      * =====================================================
-     * 如果剛才執行 liff.login()
+     * 如果前一步執行 liff.login()
+     * 就不要繼續處理
      * =====================================================
      */
 
@@ -740,8 +739,7 @@ liff.init({
      */
 
     console.log(
-        "分享成功",
-        result
+        "分享成功"
     );
 
 
@@ -779,7 +777,7 @@ liff.init({
      * =====================================================
      * 錯誤處理
      * =====================================================
- */
+     */
 
     console.error(
 
@@ -811,6 +809,7 @@ liff.init({
     );
 
 });
+
 
 </script>
 
