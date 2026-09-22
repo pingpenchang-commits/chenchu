@@ -1,42 +1,45 @@
 <!DOCTYPE html>
+
 <html lang="zh-TW">
 
 <head>
 
-    <meta charset="UTF-8">
+```
+<meta charset="UTF-8">
 
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
 
-    <title>分享電子名片</title>
+<title>分享電子名片</title>
 
-    <!-- LINE LIFF SDK -->
-    <script charset="utf-8"
-        src="https://static.line-scdn.net/liff/edge/2/sdk.js">
-    </script>
+<!-- LINE LIFF SDK -->
+<script
+    charset="utf-8"
+    src="https://static.line-scdn.net/liff/edge/2/sdk.js">
+</script>
+```
 
 </head>
 
-
 <body>
 
-    <div style="
-        text-align:center;
-        margin-top:50px;
-        font-family:sans-serif;
-    ">
+<div style="
+    text-align:center;
+    margin-top:50px;
+    font-family:sans-serif;
+">
 
-        <h2>正在開啟 LINE 分享...</h2>
+```
+<h2>正在開啟 LINE 分享...</h2>
 
-        <p id="status">
-            請稍候
-        </p>
+<p id="status">
+    請稍候
+</p>
+```
 
-    </div>
-
+</div>
 
 <script>
-
 
 /*
  * =========================================================
@@ -49,8 +52,11 @@ const LIFF_ID = "2011256691-zF9c9pjc";
 
 /*
  * =========================================================
- * LINE Flex Message
- * 電子名片：王俊騰／宸浚企業社
+ * LINE FLEX MESSAGE
+ *
+ * 第二份 JSON 已整合到第一份 LIFF 程式
+ *
+ * 王俊騰／宸浚企業社
  * =========================================================
  */
 
@@ -82,9 +88,7 @@ const flexMessage = {
 
             aspectRatio: "60:11",
 
-            aspectMode: "cover",
-
-            gravity: "center"
+            aspectMode: "cover"
 
         },
 
@@ -101,7 +105,10 @@ const flexMessage = {
 
             layout: "vertical",
 
+            spacing: "md",
+
             contents: [
+
 
                 /*
                  * =================================================
@@ -131,17 +138,15 @@ const flexMessage = {
 
                             gravity: "center",
 
-                            offsetTop: "xxl",
-      
                             color: "#000000"
 
                         }
 
                     ],
 
-                    borderWidth: "bold",
+                    height: "70px",
 
-                    height: "100px"
+                    justifyContent: "center"
 
                 },
 
@@ -158,7 +163,16 @@ const flexMessage = {
 
                     layout: "vertical",
 
+                    backgroundColor: "#CCEEFF",
+
+                    cornerRadius: "md",
+
+                    paddingAll: "12px",
+
+                    spacing: "sm",
+
                     contents: [
+
 
                         /*
                          * -------------------------------------------------
@@ -172,6 +186,8 @@ const flexMessage = {
 
                             layout: "horizontal",
 
+                            alignItems: "center",
+
                             contents: [
 
                                 {
@@ -183,9 +199,9 @@ const flexMessage = {
 
                                     size: "xs",
 
-                                    align: "start",
+                                    aspectMode: "fit",
 
-                                    gravity: "center"
+                                    flex: 0
 
                                 },
 
@@ -195,21 +211,19 @@ const flexMessage = {
 
                                     text: "宸浚企業社",
 
-                                    align: "start",
+                                    size: "md",
+
+                                    weight: "bold",
 
                                     gravity: "center",
 
-                                    size: "md",
+                                    margin: "sm",
 
-                                    offsetEnd: "55px",
-
-                                    weight: "bold"
+                                    flex: 1
 
                                 }
 
-                            ],
-
-                            height: "30px"
+                            ]
 
                         },
 
@@ -222,121 +236,108 @@ const flexMessage = {
 
                         {
 
-                            type: "box",
+                            type: "separator",
 
-                            layout: "vertical",
+                            color: "#FFFFFF",
 
-                            contents: [
-
-                                {
-
-                                    type: "separator",
-
-                                    margin: "md",
-
-                                    color: "#FFFFFF"
-
-                                }
-
-                            ],
-
-                            height: "20px"
+                            margin: "xs"
 
                         },
 
 
                         /*
                          * -------------------------------------------------
-                         * 地址
+                         * 手機
                          * -------------------------------------------------
                          */
 
                         {
 
-                            type: "box",
+                            type: "text",
 
-                            layout: "vertical",
+                            text:
+                                "電話：0988-102039",
 
-                            contents: [
+                            weight: "bold",
 
-                                {
+                            color: "#000000",
 
-                                    type: "text",
+                            action: {
 
-                                    text:
-                                        "地址：台中市外埔區溪底路36號",
+                                type: "uri",
 
-                                    weight: "bold",
+                                label: "撥打電話",
 
-                                    action: {
+                                uri:
+                                    "tel:0988102039"
 
-                                        type: "uri",
-
-                                        label: "開啟地圖",
-
-                                        uri:
-                                            "https://maps.app.goo.gl/ADjuY6sNV4vY4uoW7"
-
-                                    }
-
-                                }
-
-                            ],
-
-                            height: "30px"
+                            }
 
                         },
 
 
                         /*
                          * -------------------------------------------------
-                         * 電話
+                         * 潭子店
                          * -------------------------------------------------
                          */
 
                         {
 
-                            type: "box",
+                            type: "text",
 
-                            layout: "vertical",
+                            text:
+                                "市話：04-25335439（潭子店）",
 
-                            contents: [
+                            weight: "bold",
 
-                                {
+                            color: "#000000",
 
-                                    type: "text",
+                            action: {
 
-                                    text:
-                                        "電話：0988-102039",
+                                type: "uri",
 
-                                    weight: "bold",
+                                label: "撥打潭子店電話",
 
-                                    action: {
+                                uri:
+                                    "tel:0425335439"
 
-                                        type: "uri",
+                            }
 
-                                        label: "撥打電話",
+                        },
 
-                                        uri:
-                                            "tel:0988102039"
 
-                                    }
+                        /*
+                         * -------------------------------------------------
+                         * 后里店
+                         * -------------------------------------------------
+                         */
 
-                                }
+                        {
 
-                            ],
+                            type: "text",
 
-                            height: "25px"
+                            text:
+                                "市話：04-25573968（后里店）",
+
+                            weight: "bold",
+
+                            color: "#000000",
+
+                            action: {
+
+                                type: "uri",
+
+                                label: "撥打后里店電話",
+
+                                uri:
+                                    "tel:0425573968"
+
+                            }
 
                         }
 
-                    ],
-
-                    backgroundColor: "#CCEEFF",
-
-                    borderWidth: "10px",
-
-                    cornerRadius: "md"
+                    ]
 
                 },
 
@@ -353,15 +354,24 @@ const flexMessage = {
 
                     layout: "horizontal",
 
+                    spacing: "sm",
+
+                    margin: "md",
+
                     contents: [
 
+
                         /*
-                         * 加 LINE 聯繫
+                         * 加 LINE
                          */
 
                         {
 
                             type: "button",
+
+                            style: "primary",
+
+                            color: "#0044BB",
 
                             action: {
 
@@ -370,13 +380,11 @@ const flexMessage = {
                                 label: "加 LINE 聯繫",
 
                                 uri:
-                                    "https://line.me/ti/p/xvyN_puK5u"
+                                    "https://line.me/ti/p/KGjehjx9ge"
 
                             },
 
-                            style: "primary",
-
-                            color: "#0044BB"
+                            flex: 1
 
                         },
 
@@ -389,6 +397,10 @@ const flexMessage = {
 
                             type: "button",
 
+                            style: "primary",
+
+                            color: "#003C9D",
+
                             action: {
 
                                 type: "uri",
@@ -400,33 +412,15 @@ const flexMessage = {
 
                             },
 
-                            style: "primary",
-
-                            height: "md",
-
-                            margin: "md",
-
-                            color: "#003C9D"
+                            flex: 1
 
                         }
 
-                    ],
-
-                    offsetTop: "md",
-
-                    spacing: "md",
-
-                    margin: "none",
-
-                    offsetBottom: "md",
-
-                    paddingBottom: "md"
+                    ]
 
                 }
 
-            ],
-
-            spacing: "none"
+            ]
 
         },
 
@@ -443,7 +437,12 @@ const flexMessage = {
 
             layout: "horizontal",
 
+            spacing: "md",
+
+            paddingTop: "sm",
+
             contents: [
+
 
                 /*
                  * =================================================
@@ -455,7 +454,11 @@ const flexMessage = {
 
                     type: "box",
 
-                    layout: "horizontal",
+                    layout: "vertical",
+
+                    flex: 1,
+
+                    justifyContent: "center",
 
                     contents: [
 
@@ -468,11 +471,9 @@ const flexMessage = {
 
                             size: "xs",
 
-                            align: "start",
+                            aspectMode: "fit",
 
-                            offsetBottom: "11px",
-
-                            gravity: "top",
+                            aspectRatio: "1:1",
 
                             action: {
 
@@ -487,9 +488,7 @@ const flexMessage = {
 
                         }
 
-                    ],
-
-                    height: "60px"
+                    ]
 
                 },
 
@@ -506,6 +505,23 @@ const flexMessage = {
 
                     layout: "horizontal",
 
+                    flex: 1,
+
+                    justifyContent: "center",
+
+                    alignItems: "center",
+
+                    action: {
+
+                        type: "uri",
+
+                        label: "分享",
+
+                        uri:
+                            "https://liff.line.me/2011256691-zF9c9pjc"
+
+                    },
+
                     contents: [
 
                         {
@@ -517,7 +533,9 @@ const flexMessage = {
 
                             size: "xxs",
 
-                            align: "start"
+                            aspectMode: "fit",
+
+                            flex: 0
 
                         },
 
@@ -527,35 +545,24 @@ const flexMessage = {
 
                             text: "分享",
 
+                            size: "sm",
+
                             weight: "bold",
 
-                            align: "start",
+                            gravity: "center",
 
-                            gravity: "center"
+                            margin: "xs"
 
                         }
 
-                    ],
-
-                    offsetEnd: "20px",
-
-                    action: {
-
-                        type: "uri",
-
-                        label: "分享",
-
-                        uri:
-                            "https://liff.line.me/2011256691-zF9c9pjc"
-
-                    }
+                    ]
 
                 },
 
 
                 /*
                  * =================================================
-                 * SUNCUE Logo
+                 * SUNCUE LOGO
                  * =================================================
                  */
 
@@ -564,6 +571,12 @@ const flexMessage = {
                     type: "box",
 
                     layout: "vertical",
+
+                    flex: 1,
+
+                    justifyContent: "center",
+
+                    alignItems: "flex-end",
 
                     contents: [
 
@@ -576,17 +589,14 @@ const flexMessage = {
 
                             size: "md",
 
-                            offsetBottom: "25px",
-
-                            offsetEnd: "10px",
-
-                            gravity: "top",
+                            aspectMode: "fit",
 
                             action: {
 
                                 type: "uri",
 
-                                label: "SUNCUE 官方網站",
+                                label:
+                                    "SUNCUE 官方網站",
 
                                 uri:
                                     "https://www.suncue.tw/"
@@ -595,26 +605,18 @@ const flexMessage = {
 
                         }
 
-                    ],
-
-                    width: "120px",
-
-                    offsetBottom: "5px"
+                    ]
 
                 }
 
-            ],
-
-            spacing: "xs",
-
-            height: "60px"
+            ]
 
         },
 
 
         /*
          * =====================================================
-         * STYLES
+         * FOOTER STYLE
          * =====================================================
          */
 
@@ -622,9 +624,9 @@ const flexMessage = {
 
             footer: {
 
-                separatorColor: "#DDDDDD",
+                separator: true,
 
-                separator: true
+                separatorColor: "#DDDDDD"
 
             }
 
@@ -647,6 +649,7 @@ liff.init({
 
 })
 
+
 .then(() => {
 
 
@@ -663,7 +666,7 @@ liff.init({
 
     /*
      * =====================================================
-     * 檢查登入
+     * 檢查 LINE 登入狀態
      * =====================================================
      */
 
@@ -680,7 +683,7 @@ liff.init({
      * =====================================================
      * 開啟 LINE 分享對象選擇器
      * =====================================================
-     */
+ */
 
     return liff.shareTargetPicker([
 
@@ -696,8 +699,7 @@ liff.init({
 
     /*
      * =====================================================
-     * 如果前一步執行 liff.login()
-     * 就不要繼續處理
+     * 如果剛才執行 liff.login()
      * =====================================================
      */
 
@@ -738,7 +740,8 @@ liff.init({
      */
 
     console.log(
-        "分享成功"
+        "分享成功",
+        result
     );
 
 
@@ -776,7 +779,7 @@ liff.init({
      * =====================================================
      * 錯誤處理
      * =====================================================
-     */
+ */
 
     console.error(
 
@@ -808,7 +811,6 @@ liff.init({
     );
 
 });
-
 
 </script>
 
